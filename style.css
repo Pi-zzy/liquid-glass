@@ -319,10 +319,12 @@ html[data-theme='dark'] .liquid-glass {
 
 .clock-face .ticks .minor line { stroke-width: 1.2; opacity: 0.6; }
 
+/* Hands rotate via the SVG transform attribute (rotate(a 60 60)), which
+   carries its own pivot — no CSS transform-origin here, the two would
+   compose into a double offset and swing the hands around wildly. */
 .clock-face .hand {
   stroke: var(--clock-hand);
   stroke-linecap: round;
-  transform-origin: 60px 60px;
 }
 
 .clock-face .hand.hour { stroke-width: 5; }
@@ -330,7 +332,6 @@ html[data-theme='dark'] .liquid-glass {
 .clock-face .hand.second {
   stroke: var(--clock-second);
   stroke-width: 1.6;
-  transform-origin: 60px 60px;
 }
 
 .clock-face .cap { fill: var(--clock-second); }
